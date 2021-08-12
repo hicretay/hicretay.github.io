@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon"
+        href="https://www.flaticon.com/svg/vstatic/svg/984/984145.svg?token=exp=1620346029~hmac=6a28452fd6784cbc8074613cd82d72aa">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Hicret Ay | Software Developer</title>
+</head>
+
+<body>
+
+    <section id="information-container">
+
+        <div id="information-text">
+            <div class="information-text-big-container">
+                <div id="pp-container" data-aos-offset="600" data-aos-easing="ease-in-sine">
+                    <img src="src/pp.jpeg" alt="Hicret AY">
+                </div>
+                <div class="information-text-container">
+                    <h1 data-aos="fade-right">Hicret AY</h1>
+                    <div id="titleText">Frontend Developer</div>
+                    <p data-aos="fade-left" style="font-size: 17px;">Hi, my name is Hicret. I am computer engineering
+                        student. I am interested in Mobile Programming especially Flutter. I’m looking to collaborate
+                        people for Flutter learning.</p>
+                    <p data-aos="fade-right"><i class="fas fa-map-marker-alt" style="padding-right:5px;"></i><span
+                            style="font-style: italic;">Afyonkarahisar, Turkey</span></p>
+                    <p data-aos="fade-right"><i class="far fa-building" style="padding-right:5px;"></i><span
+                            style="font-style: italic;">Computer Engineering, Selçuk University</span></p>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div id="social-media">
+            <a href="https://github.com/hicrett"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/hicret-ay/"><i class="fab fa-linkedin-in"></i></a>
+            <a href="mailto:hiicretay@gmail.com"><i class="far fa-envelope"></i></a>
+        </div>
+
+    </section>
+
+    <div id="using-techs">
+        <p class="click-tech" style="font-size:25px;"><b>Technologies I use:</b> </p>
+        <div class="icons">
+            <img src="https://img.icons8.com/color/48/000000/flutter.png" />
+            <img src="https://img.icons8.com/color/48/000000/firebase.png" />
+            <img src="https://img.icons8.com/color/48/000000/dart.png" />
+            <img src="https://img.icons8.com/color/48/000000/git.png" />
+            <img src="https://img.icons8.com/color/48/000000/android-studio--v3.png" />
+            <img src="https://img.icons8.com/color/48/000000/visual-studio-code-2019.png" />
+
+        </div>
+    </div>
+
+    <section id="works">
+        <p class="title">My Projects</p>
+        <div class="big-container">
+            <div class="photo-container">
+                <div class="image-container">
+                    <img src="src/estetik.gif" alt="Estetik Vitrini">
+                </div>
+                <p>Estetik Vitrini</p>
+            </div>
+            <div class="photo-container">
+                <div class="image-container">
+                    <img src="src/arcair.gif" alt="ARCAir">
+                </div>
+                <p>ARCAir</p>
+            </div>
+            <div class="photo-container">
+                <div class="image-container">
+                    <img src="src/envoy.gif" alt="Envoy Şoför">
+                </div>
+                <p>Envoy</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+</body>
+<script src="script.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://kit.fontawesome.com/46ffcc0a66.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+<script>AOS.init();</script>
+<script>
+    var textTitle = document.getElementById('titleText');
+
+    var typewriter = new Typewriter(textTitle, {
+        loop: true,
+        delay: 75,
+    });
+
+    typewriter
+        .pauseFor(1000)
+        .typeString('Flutter Developer')
+        .pauseFor(300)
+        .deleteChars(18)
+        .typeString('Mobile Developer')
+        .pauseFor(300)
+        .deleteChars(16)
+        .typeString('Student')
+        .pauseFor(1000)
+        .start();
+</script>
+
+</html>
