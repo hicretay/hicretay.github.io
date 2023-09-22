@@ -2,129 +2,836 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon"
-        href="https://www.flaticon.com/svg/vstatic/svg/984/984145.svg?token=exp=1620346029~hmac=6a28452fd6784cbc8074613cd82d72aa">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <title>Hicret AY | Jr. Flutter Developer</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vCard - Personal Portfolio</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <section id="information-container">
+  <!--
+    - #MAIN
+  -->
 
-        <div id="information-text">
-            <div class="information-text-big-container">
-                <div id="pp-container" data-aos-offset="600" data-aos-easing="ease-in-sine">
-                    <img src="src/pp.jpeg" alt="Hicret AY">
-                </div>
-                <div class="information-text-container">
-                    <h1 data-aos="fade-right">Hicret AY</h1>
-                    <div id="titleText">Frontend Developer</div>
-                    <p data-aos="fade-left" style="font-size: 17px;">Hi, my name is Hicret. I am computer engineer.
-                        I am interested in Mobile Programming especially Flutter and I am looking for a new job to apply
-                        and advance my flutter knowledge.</p>
-                    <p data-aos="fade-right"><i class="fas fa-map-marker-alt" style="padding-right:5px;"></i><span
-                            style="font-style: italic;">Afyonkarahisar, Turkey</span></p>
-                    <p data-aos="fade-right"><i class="far fa-building" style="padding-right:5px;"></i><span
-                            style="font-style: italic;">Flutter Developer, SambaPOS Software</span></p>
+  <main>
 
-                </div>
+    <!--
+      - #SIDEBAR
+    -->
+
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+
+        <figure class="avatar-box">
+          <img src="./assets/images/me2.png" alt="Hicret Ay" width="80">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Hicret Ay">Hicret AY</h1>
+
+          <p class="title">Mobile developer</p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
+      </div>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
             </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+
+              <a href="mailto:hiicretay@gmail.com" class="contact-link">hiicretay@gmail.com</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+
+              <address>Afyonkarahisar, Turkey</address>
+            </div>
+
+          </li>
+
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+
+          <li class="social-item">
+            <a href="https://www.linkedin.com/in/hicret-ay/" target="new" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://www.instagram.com/mrscodenstein/" target="new" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://discord.com/channels/@hicretay" target="new" class="social-link">
+              <ion-icon name="logo-discord"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </aside>
+
+
+
+
+
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <button class="navbar-link  active" data-nav-link>About</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Resume</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Projects</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Blog</button>
+          </li>
+
+        </ul>
+
+      </nav>
+
+
+
+
+
+      <!--
+        - #ABOUT
+      -->
+
+      <article class="about  active" data-page="about">
+
+        <header>
+          <h2 class="h2 article-title">About me</h2>
+        </header>
+
+        <section class="about-text">
+          <p>
+            Hi, I'm a dedicated Mobile Developer hailing from the Afyonkarahisar, Turkey, with a strong background in mobile app development.</p>
+
+          <p>
+            About 3 years of experience Flutter Developer, I'm open for a full-time opportunity in Mobile Programming. 
+            I'm committed to staying on the cutting edge of technology trends, ensuring that the solutions I create are not only functional but also at the forefront of innovation.
+          </p>
+
+          <p>
+            Collaboration is at the core of my approach.
+            I believe that the best results are achieved when a diverse team comes together to solve problems, leveraging their unique perspectives and skillsets.
+          </p>
+
+          <p>
+            In summary, I'm not just a Mobile Developer; I'm a problem solver, a creative thinker, and a dedicated who is ready to contribute to the success of your next mobile app endeavor. 
+            Let's work together to create something truly exceptional.
+          </p>
+
+        </section>
+
+
+        <!--
+          - service
+        -->
+
+        <section class="service">
+
+          <h3 class="h3 service-title">What i'm doing</h3>
+
+          <ul class="service-list">
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-app.svg" alt="mobile app icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Mobile apps</h4>
+
+                <p class="service-item-text">
+                  Professional development of applications for iOS and Android.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-design.svg
+                " alt="design icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Mobile design</h4>
+
+                <p class="service-item-text">
+                  The most modern and original design.
+                </p>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section>
+
+
+        <div class="modal-container" data-modal-container>
+
+          <div class="overlay" data-overlay></div>
+
+          <section class="testimonials-modal">
+
+            <button class="modal-close-btn" data-modal-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+            <div class="modal-img-wrapper">
+              <figure class="modal-avatar-box">
+                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
+              </figure>
+
+              <img src="./assets/images/icon-quote.svg" alt="quote icon">
+            </div>
+
+            <div class="modal-content">
+
+              <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
+
+              <time datetime="2021-06-14">14 June, 2021</time>
+
+              <div data-modal-text>
+                <p>
+                  Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                  lot of experience
+                  and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                  consectetur adipiscing
+                  elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                </p>
+              </div>
+
+            </div>
+
+          </section>
+
         </div>
 
+      </article>
 
-        <div id="social-media">
-            <a href="https://github.com/hicrett"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/hicret-ay/"><i class="fab fa-linkedin-in"></i></a>
-            <a href="mailto:hiicretay@gmail.com"><i class="far fa-envelope"></i></a>
-        </div>
 
-    </section>
 
-    <div id="using-techs">
-        <p class="click-tech" style="font-size:25px;"><b>Technologies I use:</b> </p>
-        <div class="icons">
-            <img src="https://img.icons8.com/color/48/000000/flutter.png" />
-            <img src="https://img.icons8.com/color/48/000000/firebase.png" />
-            <img src="https://img.icons8.com/color/48/000000/dart.png" />
-            <img src="https://img.icons8.com/color/48/000000/git.png" />
-            <img src="https://img.icons8.com/color/48/000000/android-studio--v3.png" />
-            <img src="https://img.icons8.com/color/48/000000/visual-studio-code-2019.png" />
-            <img src="https://img.icons8.com/color/48/000000/c-sharp-logo-2.png" />
-            <img src="https://img.icons8.com/color/48/000000/microsoft-sql-server.png" />
 
-        </div>
+
+      <!--
+        - #RESUME
+      -->
+
+      <article class="resume" data-page="resume">
+
+        <header>
+          <h2 class="h2 article-title">Resume</h2>
+        </header>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Education</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Selcuk University, Konya/Turkey</h4>
+
+              <span>2019 — 2022</span>
+
+              <p class="timeline-text">
+                Bachelor of Computer Engineering
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">dumlupınar university, kütahya/turkey</h4>
+
+              <span>2018 — 2019</span>
+
+              <p class="timeline-text">
+                Bachelor of Computer Engineering,&nbsp; Undergraduate Transfer&nbsp; </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Ali Caglar Anatolian High school</h4>
+
+              <span>2013 — 2017</span>
+
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Experience</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">TUTUS MEDIA GmbH,&nbsp;Mobile Developer - Freelance</h4>
+
+              <span>August 2023 - Present</span>
+
+              <p class="timeline-text">
+                As a member of the Mobile Development Team at Morgenmarkt, I actively contribute to the development and
+                deployment of mobile applications using the Flutter framework.
+              </p>
+
+              <p class="timeline-text"></pclass>
+                <p class="timeline-text">- Publishing and updating application on Google Play Store and App Store&nbsp;</p>
+                <p class="timeline-text">- Integrating desired UI designs and making Restful API connections&nbsp;</p>
+                <p class="timeline-text">- Completing tasks given from Notion&nbsp;</p>
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">sambapos SOFTWARE,&nbsp;Flutter Developer - Full time</h4>
+
+              <span>January 2022 - Present</span>
+
+              <p class="timeline-text"> Worked on web development with flutter. Tasks were taken in the Jetrik project
+                and its sub-projects.&nbsp;</p>
+              <p class="timeline-text">- Completion of assigned work packages using Open Project.&nbsp;</p>
+              <p class="timeline-text">- Coding the design given with Figma in Flutter,&nbsp;</p>
+              <p class="timeline-text">- Making Rest API connections,&nbsp;</p>
+              <p class="timeline-text">- Tasks such as error analysis and tests have been performed.&nbsp;</p>
+              <p class="timeline-text">- Firebase analytics and Performance&nbsp;</p>
+              <p class="timeline-text">-Worked with Riverpod and Provider in State management.&nbsp;</p>
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">AE CODE TECHNOLOGY,&nbsp;Jr. Software Developer - Internship / Full
+                time</h4>
+
+              <span>February 2021 - January 2022</span>
+
+              <p class="timeline-text"> Worked on mobile application development with Flutter and Web API development
+                with asp .NET Core.&nbsp;</p>
+              <p class="timeline-text">- Responsive UI&nbsp;</p>
+              <p class="timeline-text">- UX Design in Figma&nbsp;</p>
+              <p class="timeline-text">- SQFlite&nbsp;</p>
+              <p class="timeline-text">- Firebase&nbsp;</p>
+              <p class="timeline-text">- Restful API integration&nbsp;</p>
+              <p class="timeline-text">- Web API</p>
+              <p class="timeline-text">- Developed Estetik Vitrini, Genç Takım and Envoy Şoför applications. </p>
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="skill">
+
+          <h3 class="h3 skills-title">My skills</h3>
+
+          <ul class="skills-list content-card">
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Dart/flutter</h5>
+                <data value="80">80%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 80%;"></div>
+              </div>
+
+            </li>
+
+
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">android(java)</h5>
+                <data value="50">50%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 50%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">c#</h5>
+                <data value="50">50%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 50%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">MS SQL</h5>
+                <data value="50">50%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 50%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">swiftUI</h5>
+                <data value="30">30%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 30%;"></div>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+
+      <!--
+        - #PORTFOLIO
+      -->
+
+      <article class="projects" data-page="projects">
+
+        <header>
+          <h2 class="h2 article-title">Projects</h2>
+        </header>
+
+        <section class="projects">
+
+          <ul class="filter-list">
+
+            <li class="filter-item">
+              <button class="active" data-filter-btn>All</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Projects I contributed</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>My Applications</button>
+            </li>
+
+          </ul>
+
+          <div class="filter-select-box">
+
+            <button class="filter-select" data-select>
+
+              <div class="select-value" data-selecct-value>Select category</div>
+
+              <div class="select-icon">
+                <ion-icon name="chevron-down"></ion-icon>
+              </div>
+
+            </button>
+
+            <ul class="select-list">
+
+              <li class="select-item">
+                <button data-select-item>All</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Projects I contributed</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>My Applications</button>
+              </li>
+
+            </ul>
+
+          </div>
+
+          <ul class="project-list">
+
+
+            <li class="project-item  active" data-filter-item data-category="projects i contributed">
+              <a href="https://play.google.com/store/apps/details?id=morgen.markt.app&gl=TR" target="new">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/morgenmarkt.png" alt="fundo" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Morgenmarkt</h3>
+
+                <p class="project-category">Projects I contributed</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="my applications">
+              <a href="https://github.com/hicretay/what_am_i" target="new">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/wai.png" alt="what am i" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">What am i?</h3>
+
+                <p class="project-category">My Applications</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="projects i contributed">
+              <a href="https://jetrik.com/" target="new">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/jetrik.png" alt="jetrik." loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Jetrik</h3>
+
+                <p class="project-category">Projects I contributed</p>
+
+              </a>
+            </li>
+
+
+            <li class="project-item  active" data-filter-item data-category="my applications">
+              <a href="#">
+
+                <figure class="project-img">
+                  <!-- <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div> -->
+
+                  <img src="./assets/images/she_wo.png" alt="She Wo" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">She Wo</h3>
+
+                <p class="project-category">My Applications</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="my applications">
+              <a href="#">
+
+                <figure class="project-img">
+                  <!-- <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div> -->
+
+                  <img src="./assets/images/positive_vibes.png" alt="Positive Vibes" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Positive Vibes</h3>
+
+                <p class="project-category">My Applications</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="my applications">
+              <a href="https://github.com/hicretay/estetik_vitrini" target="new">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/estetik.png" alt="Estetik Vitrini" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Estetik Vitrini</h3>
+
+                <p class="project-category">My Applications</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="my applications">
+              
+
+              <a href="https://github.com/hicretay/genc_takim" target="new">
+
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                    <!-- <ion-icon name="eye-outline" ng-click="goToLink()"></ion-icon> -->
+                  </div>
+
+                  <img src="./assets/images/genc_takim.png" alt="Genc Takim" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Genc Takim</h3>
+
+                <p class="project-category">My Applications</p>
+
+              </a>
+            </li>
+
+
+            <li class="project-item  active" data-filter-item data-category="my applications">
+              <a href="https://github.com/hicretay/arcair_ui" target="new">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/arcair.png" alt="Arcair" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Arcair</h3>
+
+                <p class="project-category">My Applications</p>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+      <!--
+        - #BLOG
+      -->
+
+      <article class="blog" data-page="blog">
+
+        <header>
+          <h2 class="h2 article-title">Blog</h2>
+        </header>
+
+        <section class="blog-posts">
+
+          <ul class="blog-posts-list">
+
+            <li class="blog-post-item">
+              <a href="https://medium.com/@hicretay/flutterda-test-kavram%C4%B1-d5c1b1424d85" target="new">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog1.png" alt="Design conferences in 2022" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Sep 1, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Flutter’da Test Kavramı</h3>
+
+                  <p class="blog-text">
+                    Flutter’da test yazımı ve test çeşitleri.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+
+      <!--
+        - #CONTACT
+      -->
+
+      <article class="contact" data-page="contact">
+
+        <header>
+          <h2 class="h2 article-title">Contact</h2>
+        </header>
+
+        <section class="mapbox" data-mapbox>
+          <figure>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d199666.5651251294!2d-121.58334177520186!3d38.56165006739519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ac672b28397f9%3A0x921f6aaa74197fdb!2sSacramento%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1647608789441!5m2!1sen!2sbd"
+              width="400" height="300" loading="lazy"></iframe>
+          </figure>
+        </section>
+
+        <section class="contact-form">
+
+          <h3 class="h3 form-title">Contact Form</h3>
+
+          <form action="#" class="form" data-form>
+
+            <div class="input-wrapper">
+              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+
+              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+            </div>
+
+            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+
+            <button class="form-btn" type="submit" disabled data-form-btn>
+              <ion-icon name="paper-plane"></ion-icon>
+              <span>Send Message</span>
+            </button>
+
+          </form>
+
+        </section>
+
+      </article>
+
     </div>
 
-    <section id="works">
-        <p class="title">Projects I Completed</p>
-        <div class="big-container">
-            <div class="photo-container">
-                <div class="image-container">
-                    <img src="src/estetik.gif" alt="Estetik Vitrini">
-                </div>
-                <p>Estetik Vitrini</p>
-                <a href="https://github.com/hicretay/estetik_vitrini">codes</a>
-            </div>
-            <div class="photo-container">
-                <div class="image-container">
-                    <img src="src/arcair.gif" alt="ARCAir">
-                </div>
-                <p>ARCAir</p>
-                <a href="https://github.com/hicretay/arcair_ui">codes</a>
-            </div>
-            <div class="photo-container">
-                <div class="image-container">
-                    <img src="src/envoy.gif" alt="Envoy Şoför">
-                </div>
-                <p>Envoy Şoför</p>
-                <a href="https://github.com/hicretay/envoy_sofor">codes</a>
-            </div>
-            <div class="photo-container">
-                <div class="image-container">
-                    <img src="src/genctakim.gif" alt="Genç Takım">
-                </div>
-                <p>Genç Takım</p>
-                <a href="https://github.com/hicretay/genc_takim">codes</a>
-            </div>
-
-        </div>
-
-    </section>
+  </main>
 
 
+
+
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </body>
-<script src="script.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="https://kit.fontawesome.com/46ffcc0a66.js" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
-<script>AOS.init();</script>
-<script>
-    var textTitle = document.getElementById('titleText');
-
-    var typewriter = new Typewriter(textTitle, {
-        loop: true,
-        delay: 75,
-    });
-
-    typewriter
-        .pauseFor(1000)
-        .typeString('Flutter Developer')
-        .pauseFor(300)
-        .deleteChars(18)
-        .typeString('Mobile Developer')
-        .pauseFor(300)
-        .deleteChars(16)
-        .typeString('Computer Engineer')
-        .pauseFor(1000)
-        .start();
-</script>
 
 </html>
