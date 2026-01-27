@@ -55,63 +55,52 @@ overlay.addEventListener("click", testimonialsModalFunc);
 
 
 
-// custom select variables
-const select = document.querySelector("[data-select]");
-const selectItems = document.querySelectorAll("[data-select-item]");
-const selectValue = document.querySelector("[data-selecct-value]");
-const filterBtn = document.querySelectorAll("[data-filter-btn]");
+// custom select variables - removed filtering functionality
+// No longer needed since all projects are displayed without filters
 
-select.addEventListener("click", function () { elementToggleFunc(this); });
 
-// add event in all select items
-for (let i = 0; i < selectItems.length; i++) {
-  selectItems[i].addEventListener("click", function () {
+// Calculate work duration dynamically
+function calculateWorkDuration(startDate) {
+  const start = new Date(startDate);
+  const now = new Date();
 
-    let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
-    elementToggleFunc(select);
-    filterFunc(selectedValue);
+  let years = now.getFullYear() - start.getFullYear();
+  let months = now.getMonth() - start.getMonth();
 
-  });
-}
-
-// filter variables
-const filterItems = document.querySelectorAll("[data-filter-item]");
-
-const filterFunc = function (selectedValue) {
-
-  for (let i = 0; i < filterItems.length; i++) {
-
-    if (selectedValue === "all") {
-      filterItems[i].classList.add("active");
-    } else if (selectedValue === filterItems[i].dataset.category) {
-      filterItems[i].classList.add("active");
-    } else {
-      filterItems[i].classList.remove("active");
-    }
-
+  if (months < 0) {
+    years--;
+    months += 12;
   }
 
+  if (years > 0 && months > 0) {
+    return `${years} year${years > 1 ? 's' : ''} ${months} month${months > 1 ? 's' : ''}`;
+  } else if (years > 0) {
+    return `${years} year${years > 1 ? 's' : ''}`;
+  } else {
+    return `${months} month${months > 1 ? 's' : ''}`;
+  }
 }
 
-// add event in all filter button items for large screen
-let lastClickedBtn = filterBtn[0];
+// Update current job duration on page load
+document.addEventListener('DOMContentLoaded', function() {
+  // Find all timeline sections
+  const timelineSections = document.querySelectorAll('.timeline');
 
-for (let i = 0; i < filterBtn.length; i++) {
+  // The second timeline section is Experience (first is Education)
+  if (timelineSections.length > 1) {
+    const experienceSection = timelineSections[1];
+    const timelineItems = experienceSection.querySelectorAll('.timeline-item');
 
-  filterBtn[i].addEventListener("click", function () {
+    if (timelineItems.length > 0) {
+      const currentJobSpan = timelineItems[0].querySelector('span');
 
-    let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
-    filterFunc(selectedValue);
-
-    lastClickedBtn.classList.remove("active");
-    this.classList.add("active");
-    lastClickedBtn = this;
-
-  });
-
-}
+      if (currentJobSpan && currentJobSpan.textContent.includes('Present')) {
+        const duration = calculateWorkDuration('2024-08-01');
+        currentJobSpan.textContent = `August 2024 - Present (${duration}) • Obertshausen, Germany (Remote)`;
+      }
+    }
+  }
+});
 
 
 
