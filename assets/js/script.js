@@ -92,11 +92,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const timelineItems = experienceSection.querySelectorAll('.timeline-item');
 
     if (timelineItems.length > 0) {
-      const currentJobSpan = timelineItems[0].querySelector('span');
+      const renameSpan = timelineItems[0].querySelector('span');
+      if (renameSpan && renameSpan.textContent.includes('Present')) {
+        const duration = calculateWorkDuration('2026-01-01');
+        renameSpan.textContent = `January 2026 - Present (${duration}) • Antalya, Turkey (Remote)`;
+      }
 
-      if (currentJobSpan && currentJobSpan.textContent.includes('Present')) {
+      const tutusSpan = timelineItems[1] && timelineItems[1].querySelector('span');
+      if (tutusSpan && tutusSpan.textContent.includes('Present')) {
         const duration = calculateWorkDuration('2024-08-01');
-        currentJobSpan.textContent = `August 2024 - Present (${duration}) • Obertshausen, Germany (Remote)`;
+        tutusSpan.textContent = `August 2024 - Present (${duration}) • Obertshausen, Germany (Remote)`;
       }
     }
   }
