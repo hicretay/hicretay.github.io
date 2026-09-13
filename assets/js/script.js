@@ -59,53 +59,49 @@ overlay.addEventListener("click", testimonialsModalFunc);
 // No longer needed since all projects are displayed without filters
 
 
-// Calculate work duration dynamically
-function calculateWorkDuration(startDate) {
-  const start = new Date(startDate);
-  const now = new Date();
+// work duration variables
+const durationElements = document.querySelectorAll("[data-duration]");
+const experienceYearsElements = document.querySelectorAll("[data-years-since]");
 
-  let years = now.getFullYear() - start.getFullYear();
-  let months = now.getMonth() - start.getMonth();
-
-  if (months < 0) {
-    years--;
-    months += 12;
-  }
-
-  if (years > 0 && months > 0) {
-    return `${years} year${years > 1 ? 's' : ''} ${months} month${months > 1 ? 's' : ''}`;
-  } else if (years > 0) {
-    return `${years} year${years > 1 ? 's' : ''}`;
-  } else {
-    return `${months} month${months > 1 ? 's' : ''}`;
-  }
+// parse a "YYYY-MM" value into a date
+const parseMonth = function (value) {
+  const [year, month] = value.split("-").map(Number);
+  return new Date(year, month - 1, 1);
 }
 
-// Update current job duration on page load
-document.addEventListener('DOMContentLoaded', function() {
-  // Find all timeline sections
-  const timelineSections = document.querySelectorAll('.timeline');
+// month count, counting both the first and the last month (LinkedIn style)
+const monthsBetween = function (start, end) {
+  return (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth()) + 1;
+}
 
-  // The second timeline section is Experience (first is Education)
-  if (timelineSections.length > 1) {
-    const experienceSection = timelineSections[1];
-    const timelineItems = experienceSection.querySelectorAll('.timeline-item');
+// format a month count as "2 years 7 months"
+const formatDuration = function (totalMonths) {
+  const years = Math.floor(totalMonths / 12);
+  const months = totalMonths % 12;
 
-    if (timelineItems.length > 0) {
-      const renameSpan = timelineItems[0].querySelector('span');
-      if (renameSpan && renameSpan.textContent.includes('Present')) {
-        const duration = calculateWorkDuration('2026-01-01');
-        renameSpan.textContent = `January 2026 - Present (${duration}) • Antalya, Turkey (Remote)`;
-      }
+  const parts = [];
+  if (years > 0) parts.push(`${years} year${years > 1 ? "s" : ""}`);
+  if (months > 0) parts.push(`${months} month${months > 1 ? "s" : ""}`);
 
-      const tutusSpan = timelineItems[1] && timelineItems[1].querySelector('span');
-      if (tutusSpan && tutusSpan.textContent.includes('Present')) {
-        const duration = calculateWorkDuration('2024-08-01');
-        tutusSpan.textContent = `August 2024 - Present (${duration}) • Obertshausen, Germany (Remote)`;
-      }
-    }
-  }
-});
+  return parts.join(" ") || "1 month";
+}
+
+// fill every duration element from its start date (and end date, when the role is over)
+for (let i = 0; i < durationElements.length; i++) {
+  const elem = durationElements[i];
+  const start = parseMonth(elem.dataset.start);
+  const end = elem.dataset.end ? parseMonth(elem.dataset.end) : new Date();
+
+  elem.textContent = `(${formatDuration(Math.max(monthsBetween(start, end), 1))})`;
+}
+
+// fill every "years of experience" element from the date given
+for (let i = 0; i < experienceYearsElements.length; i++) {
+  const elem = experienceYearsElements[i];
+  const years = Math.floor(monthsBetween(parseMonth(elem.dataset.yearsSince), new Date()) / 12);
+
+  elem.textContent = years;
+}
 
 
 
