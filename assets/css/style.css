@@ -466,6 +466,45 @@ main {
   font-style: normal;
 }
 
+.cv-btn {
+  position: relative;
+  margin-top: 16px;
+  background: var(--border-gradient-onyx);
+  color: var(--orange-yellow-crayola);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 16px;
+  border-radius: 12px;
+  font-size: var(--fs-7);
+  box-shadow: var(--shadow-3);
+  z-index: 1;
+  transition: var(--transition-1);
+}
+
+.cv-btn::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: var(--bg-gradient-jet);
+  border-radius: inherit;
+  z-index: -1;
+  transition: var(--transition-1);
+}
+
+.cv-btn ion-icon {
+  font-size: 16px;
+}
+
+.cv-btn:hover {
+  background: var(--bg-gradient-yellow-1);
+}
+
+.cv-btn:hover::before {
+  background: var(--bg-gradient-yellow-2);
+}
+
 .social-list {
   display: flex;
   justify-content: flex-start;
