@@ -16,45 +16,6 @@ sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); }
 
 
 
-// testimonials variables
-const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
-const modalContainer = document.querySelector("[data-modal-container]");
-const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
-const overlay = document.querySelector("[data-overlay]");
-
-// modal variable
-const modalImg = document.querySelector("[data-modal-img]");
-const modalTitle = document.querySelector("[data-modal-title]");
-const modalText = document.querySelector("[data-modal-text]");
-
-// modal toggle function
-const testimonialsModalFunc = function () {
-  modalContainer.classList.toggle("active");
-  overlay.classList.toggle("active");
-}
-
-// add click event to all modal items
-for (let i = 0; i < testimonialsItem.length; i++) {
-
-  testimonialsItem[i].addEventListener("click", function () {
-
-    modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
-    modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
-    modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
-    modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
-
-    testimonialsModalFunc();
-
-  });
-
-}
-
-// add click event to modal close button
-modalCloseBtn.addEventListener("click", testimonialsModalFunc);
-overlay.addEventListener("click", testimonialsModalFunc);
-
-
-
 // custom select variables - removed filtering functionality
 // No longer needed since all projects are displayed without filters
 
@@ -134,17 +95,84 @@ const pages = document.querySelectorAll("[data-page]");
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
 
-    for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-        pages[i].classList.add("active");
-        navigationLinks[i].classList.add("active");
-        window.scrollTo(0, 0);
-      } else {
-        pages[i].classList.remove("active");
-        navigationLinks[i].classList.remove("active");
-      }
+    const target = this.innerHTML.toLowerCase();
+
+    for (let j = 0; j < pages.length; j++) {
+      pages[j].classList.toggle("active", pages[j].dataset.page === target);
     }
+
+    for (let j = 0; j < navigationLinks.length; j++) {
+      navigationLinks[j].classList.toggle("active", navigationLinks[j] === this);
+    }
+
+    window.scrollTo(0, 0);
 
   });
 }
 
+
+
+// project image lightbox — card images open enlarged instead of navigating away
+const lightbox = document.querySelector("[data-lightbox-box]");
+
+if (lightbox) {
+  const triggers = Array.from(document.querySelectorAll("[data-lightbox]"));
+  const lightboxImg = lightbox.querySelector("[data-lightbox-img]");
+  const lightboxCaption = lightbox.querySelector("[data-lightbox-caption]");
+  let current = 0;
+  let lastFocused = null;
+
+  const show = function (index) {
+    current = (index + triggers.length) % triggers.length;
+    const trigger = triggers[current];
+    lightboxImg.src = trigger.dataset.lightboxSrc;
+    lightboxImg.alt = trigger.dataset.lightboxTitle;
+    lightboxCaption.textContent = trigger.dataset.lightboxTitle;
+  };
+
+  const open = function (index) {
+    lastFocused = document.activeElement;
+    show(index);
+    lightbox.hidden = false;
+    document.body.classList.add("lightbox-open");
+    requestAnimationFrame(function () {
+      lightbox.classList.add("open");
+    });
+    lightbox.querySelector("[data-lightbox-close]").focus();
+  };
+
+  const close = function () {
+    lightbox.classList.remove("open");
+    document.body.classList.remove("lightbox-open");
+    setTimeout(function () {
+      lightbox.hidden = true;
+      lightboxImg.removeAttribute("src");
+    }, 200);
+    if (lastFocused) lastFocused.focus();
+  };
+
+  triggers.forEach(function (trigger, index) {
+    trigger.addEventListener("click", function () {
+      open(index);
+    });
+  });
+
+  lightbox.querySelectorAll("[data-lightbox-close]").forEach(function (btn) {
+    btn.addEventListener("click", close);
+  });
+
+  lightbox.querySelector("[data-lightbox-prev]").addEventListener("click", function () {
+    show(current - 1);
+  });
+
+  lightbox.querySelector("[data-lightbox-next]").addEventListener("click", function () {
+    show(current + 1);
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (lightbox.hidden) return;
+    if (event.key === "Escape") close();
+    if (event.key === "ArrowLeft") show(current - 1);
+    if (event.key === "ArrowRight") show(current + 1);
+  });
+}
