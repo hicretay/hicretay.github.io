@@ -2212,6 +2212,7 @@ textarea.form-input::-webkit-resizer {
 
   .social-list {
     justify-content: center;
+    padding-left: 0;
   }
 
 
